@@ -1,9 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Registration = () => {
   const [registerError, setRegistrationError] = useState("");
   const [success, setSuccess] = useState("");
@@ -33,7 +36,7 @@ const Registration = () => {
         position: toast.POSITION.TOP_CENTER,
       });
       return;
-    } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+    } else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)) {
       setRegistrationError();
       toast.error("Password must contain at least one special character", {
         position: toast.POSITION.TOP_CENTER,
@@ -53,12 +56,16 @@ const Registration = () => {
         console.error(error);
       });
   };
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="text-black">
+    <div className="text-black" data-aos="flip-left" data-aos-duration="3000">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left mb-5">
-            <h1 className="text-5xl ">
+            <h1 className="text-5xl text-blue-500 ">
               Create an Account !!! Its free and Simple!!!!!
             </h1>
           </div>
@@ -70,6 +77,7 @@ const Registration = () => {
                     <span className="label-text">Your Name</span>
                   </label>
                   <input
+                    required
                     type="text"
                     name="name"
                     placeholder="Name"
@@ -81,6 +89,7 @@ const Registration = () => {
                     <span className="label-text">Email</span>
                   </label>
                   <input
+                    required
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -92,6 +101,7 @@ const Registration = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
+                    required
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Password"

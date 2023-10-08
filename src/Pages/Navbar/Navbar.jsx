@@ -80,7 +80,7 @@ const Navbar = () => {
           ) : (
             <Link to={"/login"}>
               <button className=" h-8 w-16 rounded bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ... ">
-                Sign In
+                LogIn
               </button>
             </Link>
           )}

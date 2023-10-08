@@ -1,7 +1,19 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const EventCategory = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="">
-      <div className=" rounded-lg shadow-md p-4">
+    <div className="" data-aos="flip-right">
+      <div
+        className=" rounded-lg shadow-md p-4"
+        data-aos="flip-right"
+        data-aos-duration="3000"
+      >
         <h5 className="mb-3 text-lg lg:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-l from-yellow-500 to-red-500">
           Select Your Category.. From our Service
         </h5>

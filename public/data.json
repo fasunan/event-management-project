@@ -11,7 +11,7 @@
     "title": "Prince of Persia",
     "image": "https://i.ibb.co/h206RsV/image-2.png",
     "price": 19.99,
-    "description": "Prince of Persia is an action-adventure video game with a rich storyline. Join the heroic Prince on his quest to save the kingdom, solve intricate puzzles, and engage in epic combat."
+    "description": "Prince of Persia is an action-adventure video game with a rich storyline. Join the heroic Prince on his quest to save the kingdomt."
   },
   {
     "id": 3,
@@ -60,6 +60,6 @@
     "title": "Grand Theft Auto V",
     "image": "https://i.ibb.co/PcxW39w/image-10.png",
     "price": 6.99,
-    "description": "Grand Theft Auto V, the ultimate crime sandbox game. Join the criminal underworld, plan daring heists, and explore a sprawling city filled with endless possibilities. Are you ready to live on the edge?"
+    "description": " Grand Theft Auto V, the ultimate crime sandbox game. Join the criminal underworld, plan daring heists, and explore a sprawling city filled with endless possibilities. Are you ready to live on the edge?"
   }
 ]
