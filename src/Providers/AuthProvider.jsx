@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -58,5 +59,7 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={authInfoData}>{children}</AuthContext.Provider>
   );
 };
-
+AuthProvider.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 export default AuthProvider;

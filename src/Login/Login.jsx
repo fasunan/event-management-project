@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import LoginWithLink from "./LoginWithLink";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const [loginError, setLoginError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const { logInUser } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,10 +21,40 @@ const Login = () => {
 
     logInUser(email, password)
       .then((result) => {
-        console.log(result);
+        console.log(result.user);
+        // if (result.user.emailVerified) {
+        //   setSuccess("");
+        //   toast.success("Login successful", {
+        //     position: toast.POSITION.TOP_CENTER,
+        //   });
+        // } else {
+        //   toast.error("plz verify your email and password", {
+        //     position: toast.POSITION.TOP_CENTER,
+        //   });
+        // return
+        // }
+
+        setSuccess("");
+        toast.success("Login successful", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        return;
       })
       .catch((error) => {
         console.error(error);
+        setLoginError(error);
+        // if (
+        //   error?.message === "auth/user-not-found" ||
+        //   error?.message === "auth/wrong-password"
+        // ) {
+        //   toast.error("Password doesn't match", {
+        //     position: toast.POSITION.TOP_CENTER,
+        //   });
+        // } else if (error.code === "auth/invalid-email") {
+        //   toast.error("Email doesn't match", {
+        //     position: toast.POSITION.TOP_CENTER,
+        //   });
+        // }
       });
   };
   return (
@@ -35,6 +72,7 @@ const Login = () => {
                     <span className="label-text">Email</span>
                   </label>
                   <input
+                    required
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -46,16 +84,29 @@ const Login = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="password"
+                    required
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Password"
                     className="input input-bordered"
                   />
+                  <span
+                    className="absolute mt-12 mr-8 right-2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary  text-black">Login</button>
                 </div>
               </form>
+              <ToastContainer></ToastContainer>
+              {(!loginError && <p>{!loginError}</p>) ||
+                toast.error("Password doesn't match", {
+                  position: toast.POSITION.TOP_CENTER,
+                })}
+              {success && <p>{success}</p>}
               <div>
                 <p className="text-slate-800 font-medium">
                   Do not Have an Account? please

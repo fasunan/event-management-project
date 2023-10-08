@@ -9,6 +9,8 @@ import Login from "./Login/Login";
 import Registration from "./Registration/Registration";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import EventDetails from "./Pages/EventDetails/EventDetails";
+import Profile from "./PrivateRoute/Profile";
+import Favorite from "./PrivateRoute/Favorite";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <EventDetails></EventDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/favorite",
+        element: (
+          <PrivateRoute>
+            <Favorite></Favorite>
           </PrivateRoute>
         ),
       },

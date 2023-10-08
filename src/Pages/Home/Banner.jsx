@@ -10,11 +10,18 @@ const Banner = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-          <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+          <h1 className="mb-5 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-l from-yellow-500 to-red-500">
+            WellCome To eSports.Play Event
+          </h1>
+          <p className="mb-5 font-normal text-lg">
+            your ultimate destination for immersive gaming experiences and
+            thrilling competitions. Get ready to level up your gaming journey
+            with
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-l from-yellow-500 to-red-500">
+              eSports.Play Events
+            </span>
+            : Where Gamers Unite!
           </p>
           <button className="btn glass ">Get Started</button>
         </div>

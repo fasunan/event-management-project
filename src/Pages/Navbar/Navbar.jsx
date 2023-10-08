@@ -19,7 +19,7 @@ const Navbar = () => {
       </li>
       <li>
         {" "}
-        <NavLink to={"/career"}>Favorite</NavLink>
+        <NavLink to={"/favorite"}>Favorite</NavLink>
       </li>
       <li>
         {" "}
