@@ -23,7 +23,9 @@ const Banner = () => {
             </span>
             : Where Gamers Unite!
           </p>
-          <button className="btn glass ">Get Started</button>
+          <button className="btn text-red-500 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ... ">
+            Start Event
+          </button>
         </div>
       </div>
     </div>

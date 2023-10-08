@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaDollarSign } from "react-icons/fa";
 const EventDetails = () => {
   const [details, setDetails] = useState({});
@@ -15,7 +15,7 @@ const EventDetails = () => {
         setDetails(findDetails);
       });
   }, [id]);
-  const backgroundImage = "/public/image11.png";
+  const backgroundImage = "/public/bg1.jpg";
   return (
     <div
       className="hero min-h-screen text-red-600"
@@ -30,7 +30,16 @@ const EventDetails = () => {
             <FaDollarSign className="mt-[2px] text-lg"></FaDollarSign> Price :{" "}
             {details.price}
           </p>
-          <button className="btn btn-primary">Buy Now</button>
+          <div className="flex justify-between gap-10">
+            <button className=" btn h-12 w-32 rounded bg-gradient-to-r from-pink-500 to-yellow-500">
+              Buy Now
+            </button>
+            <Link to={"/"}>
+              <button className=" btn h-12 w-32 rounded bg-gradient-to-r from-green-400 to-blue-500  ">
+                Back to Home
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

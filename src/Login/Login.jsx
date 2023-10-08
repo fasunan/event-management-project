@@ -42,23 +42,21 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
-        setLoginError(error);
-        // if (
-        //   error?.message === "auth/user-not-found" ||
-        //   error?.message === "auth/wrong-password"
-        // ) {
-        //   toast.error("Password doesn't match", {
-        //     position: toast.POSITION.TOP_CENTER,
-        //   });
-        // } else if (error.code === "auth/invalid-email") {
-        //   toast.error("Email doesn't match", {
-        //     position: toast.POSITION.TOP_CENTER,
-        //   });
-        // }
+        setLoginError(error.message);
+        if (loginError === "(auth/invalid-login-credentials)") {
+          toast.error("Password doesn't match", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        } else if (loginError === "auth/invalid-email") {
+          toast.error("Email doesn't match", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        }
       });
   };
   return (
-    <div className="text-black grid grid-cols-1 md:grid-cols-2">
+    <div className="text-black">
+      <LoginWithLink></LoginWithLink>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col items-center justify-center">
           <div className="text-center lg:text-left mb-5">
@@ -76,7 +74,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className="input input-bordered"
+                    className="input input-bordered border-2 border-pink-600"
                   />
                 </div>
                 <div className="form-control">
@@ -88,7 +86,7 @@ const Login = () => {
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Password"
-                    className="input input-bordered"
+                    className="input input-bordered border-2 border-pink-600"
                   />
                   <span
                     className="absolute mt-12 mr-8 right-2"
@@ -98,11 +96,13 @@ const Login = () => {
                   </span>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary  text-black">Login</button>
+                  <button className="btn btn-primary  text-blue-500 text-2xl font-serif rounded bg-gradient-to-r from-pink-500 to-yellow-500">
+                    Login
+                  </button>
                 </div>
               </form>
               <ToastContainer></ToastContainer>
-              {(!loginError && <p>{!loginError}</p>) ||
+              {loginError &&
                 toast.error("Password doesn't match", {
                   position: toast.POSITION.TOP_CENTER,
                 })}
@@ -118,9 +118,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <LoginWithLink></LoginWithLink>
       </div>
     </div>
   );

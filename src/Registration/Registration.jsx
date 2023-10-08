@@ -59,7 +59,7 @@ const Registration = () => {
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left mb-5">
             <h1 className="text-5xl ">
-              Create an Account !!! Its free and Simle!!!!!
+              Create an Account !!! Its free and Simple!!!!!
             </h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -73,7 +73,7 @@ const Registration = () => {
                     type="text"
                     name="name"
                     placeholder="Name"
-                    className="input input-bordered"
+                    className="input input-bordered border-2 border-blue-500"
                   />
                 </div>
                 <div className="form-control">
@@ -84,7 +84,7 @@ const Registration = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className="input input-bordered"
+                    className="input input-bordered border-2 border-blue-500"
                   />
                 </div>
                 <div className="form-control">
@@ -95,7 +95,7 @@ const Registration = () => {
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Password"
-                    className="input input-bordered"
+                    className="input input-bordered border-2 border-blue-500"
                   />
                   <span
                     className="absolute mt-12 mr-8 right-2"
@@ -105,8 +105,8 @@ const Registration = () => {
                   </span>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary  text-black">
-                    Create Account
+                  <button className=" btn btn-primary text-blue-500 text-2xl font-serif rounded bg-gradient-to-r from-pink-500 to-yellow-500">
+                    Register
                   </button>
                 </div>
               </form>
