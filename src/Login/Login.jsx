@@ -1,23 +1,32 @@
 import { Link } from "react-router-dom";
-import LoginWithLink from "./LoginWithLink";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const { logInUser } = useContext(AuthContext);
+  const { logInUser, linkLogIn } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
     console.log(email, password);
+
+    linkLogIn()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     logInUser(email, password)
       .then((result) => {
@@ -56,7 +65,6 @@ const Login = () => {
   };
   return (
     <div className="text-black">
-      <LoginWithLink></LoginWithLink>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col items-center justify-center">
           <div className="text-center lg:text-left mb-5">
@@ -114,6 +122,19 @@ const Login = () => {
                     <button className="btn btn-link">Create Account</button>
                   </Link>
                 </p>
+              </div>
+              <p className="text-pink-600">Or you can log in with </p>
+              <div className="gap-4 font-serif flex text-base">
+                <button onClick={linkLogIn} className="btn w-36">
+                  {" "}
+                  <FcGoogle className="text-lg"></FcGoogle>Google
+                </button>
+                <button className="btn w-36">
+                  <span>
+                    <FaFacebook className="text-blue-500 "></FaFacebook>
+                  </span>{" "}
+                  Facebook
+                </button>
               </div>
             </div>
           </div>

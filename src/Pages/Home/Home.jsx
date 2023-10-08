@@ -9,6 +9,12 @@ const Home = () => {
   return (
     <div className="mx-auto">
       <Banner></Banner>
+      <div className="border-2 border-cyan-500 h-8 mb-8 -mt-10 text-center text-3xl rounded">
+        {" "}
+        <h3 className="text-transparent bg-clip-text bg-gradient-to-l from-yellow-500 to-red-500">
+          Our Services
+        </h3>
+      </div>
       <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div className="w-2/4 ml-8">
           <EventCategory></EventCategory>
