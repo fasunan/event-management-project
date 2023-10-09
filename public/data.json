@@ -1,11 +1,12 @@
 [
   {
     "id": 1,
-    "title": "eFootball",
-    "image": "https://i.ibb.co/0XYj3PX/image-1.png",
-    "price": "Free",
-    "description": "eFootball is a free-to-play soccer video game that offers realistic gameplay, stunning graphics, and an array of international teams to choose from."
+    "title": "Order and Chaos",
+    "image": "https://i.ibb.co/FVqCMmd/image-5.png",
+    "price": 4.99,
+    "description": "Order and Chaos is an MMORPG set in a fantasy world. Choose your hero, embark on quests, battle powerful foes, and interact with a vibrant online community in this epic adventure."
   },
+
   {
     "id": 2,
     "title": "Prince of Persia",
@@ -29,11 +30,12 @@
   },
   {
     "id": 5,
-    "title": "Order and Chaos",
-    "image": "https://i.ibb.co/FVqCMmd/image-5.png",
-    "price": 4.99,
-    "description": "Order and Chaos is an MMORPG set in a fantasy world. Choose your hero, embark on quests, battle powerful foes, and interact with a vibrant online community in this epic adventure."
+    "title": "eFootball",
+    "image": "https://i.ibb.co/0XYj3PX/image-1.png",
+    "price": "Free",
+    "description": "eFootball is a free-to-play soccer video game that offers realistic gameplay, stunning graphics, and an array of international teams to choose from."
   },
+
   {
     "id": 6,
     "title": "Asphalt",

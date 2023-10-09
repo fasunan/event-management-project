@@ -1,4 +1,4 @@
-import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-gray-800 text-white font-serif rounded">
@@ -18,6 +18,9 @@ const Footer = () => {
           </a>
           <a>
             <FaTwitter className="text-blue-400"></FaTwitter>
+          </a>
+          <a>
+            <FaYoutube className="text-red-600"></FaYoutube>
           </a>
         </div>
       </nav>

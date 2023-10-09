@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaDollarSign } from "react-icons/fa";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 const EventDetails = () => {
   const [details, setDetails] = useState({});
   console.log(details);
@@ -20,10 +17,6 @@ const EventDetails = () => {
       });
   }, [id]);
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
   const backgroundImage = "/public/bg1.jpg";
   return (
     <div
@@ -31,12 +24,7 @@ const EventDetails = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src={details.image}
-          className="w-[600px] rounded-lg shadow-2xl"
-          data-aos="fade-right"
-          data-aos-duration="2000"
-        />
+        <img src={details.image} className="w-[600px] rounded-lg shadow-2xl" />
         <div className="">
           <h1 className="text-5xl font-bold  text-transparent bg-clip-text bg-gradient-to-l from-teal-500 to-green-500">
             {details.title}

@@ -1,17 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -47,17 +45,15 @@ const Login = () => {
     linkLogIn()
       .then((result) => {
         console.log(result);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   return (
-    <div className="text-black" data-aos="flip-right" data-aos-duration="3000">
+    <div className="text-black">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col items-center justify-center">
           <div className="text-center lg:text-left mb-5">
@@ -102,7 +98,7 @@ const Login = () => {
                   </button>
                 </div>
               </form>
-              <ToastContainer></ToastContainer>
+
               {loginError && <p>{loginError}</p>}
               {success && <p>{success}</p>}
               <div>

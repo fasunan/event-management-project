@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
+import { getAuth, updateProfile } from "firebase/auth";
+const auth = getAuth();
 const Registration = () => {
+  const navigate = useNavigate();
   const [registerError, setRegistrationError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -18,6 +18,7 @@ const Registration = () => {
 
     const form = new FormData(e.currentTarget);
     const name = form.get("name");
+    const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
     console.log(email, password, name);
@@ -46,7 +47,16 @@ const Registration = () => {
 
     createNewUser(email, password)
       .then((result) => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {})
+          .catch((error) => {
+            console.log(error);
+          });
         console.log(result.user);
+        navigate(location?.state ? location.state : "/");
         setSuccess();
         toast.success("Account created successfully", {
           position: toast.POSITION.TOP_CENTER,
@@ -56,12 +66,9 @@ const Registration = () => {
         console.error(error);
       });
   };
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   return (
-    <div className="text-black" data-aos="flip-left" data-aos-duration="3000">
+    <div className="text-black">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left mb-5">
@@ -81,6 +88,18 @@ const Registration = () => {
                     type="text"
                     name="name"
                     placeholder="Name"
+                    className="input input-bordered border-2 border-blue-500"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+                  <input
+                    required
+                    type="photo"
+                    name="photo"
+                    placeholder="photoURL"
                     className="input input-bordered border-2 border-blue-500"
                   />
                 </div>

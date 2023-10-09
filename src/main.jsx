@@ -9,13 +9,15 @@ import Login from "./Login/Login";
 import Registration from "./Registration/Registration";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import EventDetails from "./Pages/EventDetails/EventDetails";
-import Profile from "./PrivateRoute/Profile";
 import Favorite from "./PrivateRoute/Favorite";
+import ErrorPage from "./ErrorPage/ErrorPage";
+import Offers from "./Pages/Offers/Offers";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -32,10 +34,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/profile",
+        path: "/offers",
         element: (
           <PrivateRoute>
-            <Profile></Profile>
+            <Offers></Offers>
           </PrivateRoute>
         ),
       },

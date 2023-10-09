@@ -13,7 +13,7 @@ const Banner = () => {
           <h1 className="mb-5 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-l from-yellow-500 to-red-500">
             WellCome To eSports.Play Event
           </h1>
-          <p className="mb-5 font-normal text-lg">
+          <p className="mb-5 font-medium text-lg ">
             your ultimate destination for immersive gaming experiences and
             thrilling competitions. Get ready to level up your gaming journey
             with
@@ -23,7 +23,7 @@ const Banner = () => {
             </span>
             : Where Gamers Unite!
           </p>
-          <button className="btn text-red-500 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ... ">
+          <button className="btn w-32 h-8 text-lg font-medium border-none text-red-500 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ... ">
             Start Event
           </button>
         </div>
