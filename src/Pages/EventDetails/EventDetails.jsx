@@ -4,7 +4,7 @@ import { FaDollarSign } from "react-icons/fa";
 
 const EventDetails = () => {
   const [details, setDetails] = useState({});
-  console.log(details);
+
   const { id } = useParams();
 
   useEffect(() => {
